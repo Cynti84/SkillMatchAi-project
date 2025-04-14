@@ -1,0 +1,29 @@
+<div class="notifications-wrapper">
+  <div class="header">
+    <h2>Interview Notifications</h2>
+    <div class="nav-actions">
+      <button class="outlined">All Notifications</button>
+      <button class="active">Interview Notifications</button>
+      <button class="outlined right">Mark all read</button>
+    </div>
+  </div>
+
+  <div class="notification-card" *ngFor="let note of notifications">
+    <div class="icon" [ngStyle]="{ 'background-color': note.iconColor }">
+      {{ note.icon }}
+    </div>
+    <div class="content">
+      <h3>{{ note.heading }}</h3>
+      <p>{{ note.description }}</p>
+      <div class="actions">
+        <button
+          *ngFor="let action of note.actions"
+          [class.primary]="action === 'Accept' || action === 'Add to Calendar' || action === 'Confirm Change'"
+          [class.outlined]="action !== 'Accept' && action !== 'Add to Calendar' && action !== 'Confirm Change'">
+          {{ action }}
+        </button>
+      </div>
+    </div>
+    <span class="timestamp">{{ note.timestamp }}</span>
+  </div>
+</div>

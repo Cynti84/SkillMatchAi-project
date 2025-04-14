@@ -1,0 +1,46 @@
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  font-family: 'Inter', sans-serif;
+
+
+  .sidebar {
+    width: 240px;
+    background: #182B48;
+    color: white;
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+      margin-left: 1rem;
+    } 
+
+    nav a {
+      display: flex;
+      flex-direction: column;
+      color: white;
+      text-decoration: none;
+      margin: 0.5rem 0;
+      font-weight: 500;
+      transition:  0.7s ease;
+      padding: 0.5rem 1rem;
+
+      &.active,
+      &:hover {
+        color: #d7e4fe;
+        background-color: rgba($color: #9fc6fc, $alpha: 0.3);
+      }
+    }
+  }
+
+  .main-content {
+    flex-grow: 1;
+    padding: 2rem;
+    background: #f9f9f9;
+    overflow-y: auto;
+  }
+}

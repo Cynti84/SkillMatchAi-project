@@ -1,0 +1,22 @@
+<div class="jobseeker-signup-container">
+  <h2>Complete Your Profile</h2>
+  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+
+    <input type="tel" placeholder="Phone Number" [(ngModel)]="phone" name="phone" required />
+    <input type="text" placeholder="Location" [(ngModel)]="location" name="location" required />
+
+    <label for="cv">Upload CV</label>
+    <input type="file" (change)="onFileSelected($event)" id="cv" accept=".pdf,.doc,.docx" />
+
+    <label for="roles">Desired Job Role</label>
+    <input type="text" placeholder="E.g. Frontend Developer" [(ngModel)]="jobRole" name="jobRole" required />
+
+    <label for="skills">Skills</label>
+    <input type="text" placeholder="E.g. Angular, TypeScript, HTML" [(ngModel)]="skills" name="skills" />
+
+    <label for="photo">Profile Photo (Optional)</label>
+    <input type="file" (change)="onPhotoSelected($event)" id="photo" accept="image/*" />
+
+    <button type="submit">Finish and Go to Dashboard</button>
+  </form>
+</div>

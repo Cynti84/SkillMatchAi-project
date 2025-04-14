@@ -1,0 +1,59 @@
+.performance-container {
+  padding: 2rem;
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtext {
+    color: #6c757d;
+    margin-bottom: 2rem;
+  }
+
+  .metrics-grid {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+
+    .metric-card {
+      flex: 1 1 200px;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5e7eb;
+
+      h4 {
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #007bff;
+      }
+
+      p {
+        font-size: 1.4rem;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .charts-section {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .chart-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e5e7eb;
+
+      h4 {
+        margin-bottom: 1rem;
+        color: #007bff;
+      }
+    }
+  }
+}

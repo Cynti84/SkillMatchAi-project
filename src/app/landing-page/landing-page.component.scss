@@ -1,0 +1,202 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+  background: #f8f9fc;
+  color: #333;
+}
+
+/* Header */
+header {
+  background-color: #0d4eb7;
+  padding: 1.5rem 2rem;
+  color: #fff;
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+
+      li a {
+        text-decoration: none;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #fff;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      li a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: -3px;
+        background: #fff;
+        transition: width 0.3s ease;
+      }
+
+      li a:hover::after {
+        width: 100%;
+      }
+
+      li a:hover {
+        color: #d6e4ff;
+      }
+    }
+  }
+}
+
+/* Hero Section */
+.hero {
+  padding: 4rem 1rem 2rem 1rem;
+  background: #0d4eb7;
+  color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+
+  .hero-content {
+    max-width: 500px;
+
+    h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    button {
+      padding: 0.75rem 2rem;
+      margin-right: 1rem;
+      font-size: 1rem;
+      background: #fff;
+      color: #0d4eb7;
+      border: none;
+      border-radius: 8px;
+      font-weight: 400;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: #d6e4ff;
+      transform: translateY(-2px);
+    }
+  }
+
+  .hero-image {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;  // Ensures image is centered vertically if needed
+
+  img {
+    width: 300px; // You can increase this to scale up the image
+    height: auto;
+  }
+}
+}
+
+/* Features */
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  padding: 3rem 1rem;
+
+  .feature {
+    flex: 1 1 250px;
+    max-width: 300px;
+    text-align: center;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease;
+
+    img {
+      max-width: 60px;
+      height: auto;
+    }
+
+    h3 {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin-top: 0.5rem;
+      font-size: 1rem;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+/* Heading */
+h2 {
+  text-align: center;
+  margin-top: 3rem;
+  font-size: 2rem;
+  padding: 0 1rem;
+  color: #2c2c2c;
+}
+
+/* Footer */
+footer {
+  padding: 1rem;
+  text-align: center;
+  background: #222;
+  color: white;
+  margin-top: 3rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 3rem 1rem;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .hero-content {
+    button {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+}

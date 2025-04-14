@@ -1,0 +1,102 @@
+<div class="interviews-header">
+  <h1>Interviews</h1>
+  <p>Track and manage your upcoming and past interviews</p>
+
+  <div class="tabs">
+    <button
+      [class.active]="activeTab === 'upcoming'"
+      (click)="switchTab('upcoming')"
+    >
+      Upcoming
+    </button>
+    <button
+      [class.active]="activeTab === 'past'"
+      (click)="switchTab('past')"
+    >
+      Past
+    </button>
+  </div>
+</div>
+
+<div class="interviews-list">
+  <ng-container *ngFor="let interview of interviews">
+    <ng-container
+      *ngIf="(activeTab === 'upcoming' && interview.status === 'Scheduled') || 
+             (activeTab === 'past' && interview.status !== 'Scheduled')"
+    >
+      <div class="interview-card" [ngClass]="interview.status.toLowerCase()">
+        <div class="avatar">{{ interview.initials }}</div>
+
+        <div class="details">
+          <h3>{{ interview.candidate }}</h3>
+          <p>{{ interview.role }}</p>
+          <p>{{ interview.date }} • {{ interview.time }} • {{ interview.type }}</p>
+        </div>
+
+        <div class="status">
+          <span class="status-badge">{{ interview.status }}</span>
+        </div>
+
+        <div class="actions" *ngIf="activeTab === 'upcoming'">
+          <button class="blue" (click)="openRescheduleModal(interview)">Reschedule</button>
+          <button class="red">Cancel</button>
+        </div>
+
+        <div class="actions" *ngIf="activeTab === 'past'">
+          <button class="outlined">View Profile</button>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+<!-- Reschedule Interview Modal -->
+<div class="modal-backdrop" *ngIf="showRescheduleModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Reschedule Interview with {{ selectedInterview?.candidate }}</h2>
+      <span class="close" (click)="closeRescheduleModal()">×</span>
+    </div>
+
+    <div class="modal-body">
+      <div class="form-group">
+        <label>Interview Type:</label>
+        <div class="type-options">
+          <button
+            [class.selected]="rescheduleType === 'Video Call'"
+            (click)="rescheduleType = 'Video Call'"
+          >Video Call</button>
+          <button
+            [class.selected]="rescheduleType === 'Phone Call'"
+            (click)="rescheduleType = 'Phone Call'"
+          >Phone Call</button>
+          <button
+            [class.selected]="rescheduleType === 'In person'"
+            (click)="rescheduleType = 'In person'"
+          >In person</button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Date:</label>
+        <input type="date" [(ngModel)]="rescheduleDate" />
+      </div>
+
+      <div class="form-group">
+        <label>Time:</label>
+        <input type="time" [(ngModel)]="rescheduleTime" />
+      </div>
+
+      <div class="form-group">
+        <label>Notes (optional):</label>
+        <textarea [(ngModel)]="rescheduleNotes" placeholder="Add additional info..."></textarea>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="outlined" (click)="closeRescheduleModal()">Cancel</button>
+      <button class="blue" (click)="saveReschedule()">Save Changes</button>
+    </div>
+  </div>
+</div>
+

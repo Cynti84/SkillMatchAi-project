@@ -1,0 +1,87 @@
+.logs-container {
+  padding: 2rem;
+  
+
+  h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .logs-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    .actions input {
+      margin-right: 0.5rem;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+  }
+
+  .filters {
+    display: flex;
+    gap: 1rem;
+    margin: 1.5rem 0;
+
+    select,
+    input {
+      padding: 0.5rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      padding: 0.5rem 1rem;
+    }
+  }
+
+  .logs-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      padding: 0.75rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+
+    .log-details {
+      background-color: #f9f9f9;
+      font-style: italic;
+      color: #333;
+    }
+
+    .success {
+      color: green;
+      font-weight: 500;
+    }
+
+    .error {
+      color: red;
+      font-weight: 500;
+    }
+
+    button {
+      background: none;
+      border: none;
+      color: #007bff;
+      cursor: pointer;
+    }
+  }
+}

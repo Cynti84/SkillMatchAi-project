@@ -1,0 +1,117 @@
+.auth-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d4eb7;
+  padding: 1rem 2rem;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .nav-links {
+    a {
+      margin-left: 1rem;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      color: #fff;
+      position: relative;
+      transition: color 0.2s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: -3px;
+        background: #fff;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: #d6e4ff;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+
+// Login form styles
+.login-container {
+  max-width: 400px;
+  margin: 5rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  text-align: center;
+
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #333;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input {
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      font-size: 1rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      transition: border-color 0.3s;
+
+      &:focus {
+        border-color: #0052cc;
+        outline: none;
+      }
+    }
+    p a{
+        text-decoration: none;
+        color: green;
+        
+        &:hover{
+        color: rgb(170, 3, 3);
+    }
+    }
+    
+    
+
+
+    button {
+      padding: 0.75rem;
+      background-color: #0052cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #003d99;
+      }
+    }
+  }
+}
+
+/* Footer */
+footer {
+  padding: 0.5rem;
+  text-align: center;
+  background: #222;
+  color: white;
+  margin-top: 3rem;
+}

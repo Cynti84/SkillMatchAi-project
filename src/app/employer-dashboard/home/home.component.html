@@ -1,0 +1,38 @@
+<div class="home-container">
+  <!-- Header -->
+  <div class="header">
+    <h1>Welcome back, {{ companyName }}</h1>
+    <p class="subtitle">Here’s an overview of your activity</p>
+  </div>
+
+  <!-- Stats Cards -->
+  <div class="stats-grid">
+    <div class="stat-card" *ngFor="let stat of stats">
+      <h2>{{ stat.value }}</h2>
+      <p>{{ stat.label }}</p>
+    </div>
+  </div>
+
+  <!-- Quick Shortcuts -->
+  <div class="shortcuts">
+    <div class="shortcut-card">
+      <h3>Post a New Job</h3>
+      <button>Go to Job Listings</button>
+    </div>
+    <div class="shortcut-card">
+      <h3>View Applicants</h3>
+      <button>Go to Applicants</button>
+    </div>
+  </div>
+
+  <!-- Recent Activity -->
+  <div class="activity-section">
+    <h3>Recent Activity</h3>
+    <ul>
+      <li *ngFor="let activity of recentActivities">
+        <span class="message">{{ activity.message }}</span>
+        <span class="time">{{ activity.time }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

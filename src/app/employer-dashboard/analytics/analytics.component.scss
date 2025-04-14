@@ -1,0 +1,145 @@
+:host {
+  display: block;
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #1e293b;
+}
+
+// 🔝 Header
+.analytics-header {
+  h1 {
+    font-size: 2rem;
+    margin: 0;
+  }
+
+  p {
+    color: #64748b;
+    margin-top: 0.25rem;
+  }
+
+  margin-bottom: 2rem;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+// 🔍 Filters
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  select {
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    background-color: #f8fafc;
+    font-size: 1rem;
+  }
+
+  button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.2rem;
+    font-size: 1rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #1d4ed8;
+    }
+  }
+}
+
+// 📈 Metrics
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  .metric-card {
+    background: #f1f5f9;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+
+    .icon {
+      font-size: 2rem;
+    }
+
+    .count {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0.5rem 0;
+    }
+
+    .label {
+      font-size: 0.95rem;
+      color: #475569;
+    }
+  }
+}
+
+// 📊 Graphs
+.charts-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  .chart-card {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+      color: #334155;
+    }
+
+    // .chart-placeholder {
+    //   margin-top: 1rem;
+    //   background: #e2e8f0;
+    //   height: 200px;
+    //   border-radius: 8px;
+    //   display: flex;
+    //   align-items: center;
+    //   justify-content: center;
+    //   color: #64748b;
+    //   font-style: italic;
+    // }
+    canvas {
+  max-width: 100%;
+}
+
+  }
+}
+
+// 📍 Insights
+.insights-section {
+  h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+
+  .insight-card {
+    background: #f9fafb;
+    padding: 1rem 1.25rem;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    color: #334155;
+    font-size: 0.95rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+  }
+}

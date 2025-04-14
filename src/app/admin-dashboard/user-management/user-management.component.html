@@ -1,0 +1,58 @@
+<div class="user-management-container">
+  <div class="header">
+    <h1>User Management</h1>
+    <div class="header-actions">
+      <input type="text" placeholder="Search by name, email or role..." [(ngModel)]="searchTerm" />
+      <select [(ngModel)]="selectedRole">
+        <option value="All">All Roles</option>
+        <option value="Job Seeker">Job Seekers</option>
+        <option value="Employer">Employers</option>
+        <option value="Admin">Admins</option>
+      </select>
+      <button class="add-admin-btn" (click)="addAdmin()">+ Add New Admin</button>
+    </div>
+  </div>
+
+  <div class="user-table">
+    <div class="table-header">
+      <div>Profile</div>
+      <div>Name</div>
+      <div>Email</div>
+      <div>Role</div>
+      <div>Status</div>
+      <div>Date Joined</div>
+      <div>Actions</div>
+    </div>
+
+    <div *ngFor="let user of filteredUsers()" class="table-row">
+      <div class="profile-pic">
+        <img [src]="user.photo" alt="Profile photo" />
+      </div>
+      <div>{{ user.name }}</div>
+      <div>{{ user.email }}</div>
+      <div><span class="role-badge" [ngClass]="user.role.toLowerCase()">{{ user.role }}</span></div>
+      <div>
+        <span [ngClass]="{'active-status': user.status === 'Active', 'suspended-status': user.status === 'Suspended'}">
+          {{ user.status }}
+        </span>
+      </div>
+      <div>{{ user.dateJoined }}</div>
+      <div class="actions">
+        <button class="view-btn">View</button>
+        <button class="suspend-btn" (click)="toggleStatus(user)">
+          {{ user.status === 'Active' ? 'Suspend' : 'Unsuspend' }}
+        </button>
+        <button class="promote-btn" *ngIf="user.role !== 'Admin'" (click)="promoteToAdmin(user)">Promote</button>
+        <button class="delete-btn" (click)="deleteUser(user)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button>&lt;</button>
+    <button class="active">1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>&gt;</button>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+<div class="logs-container">
+  <div class="logs-header">
+    <h2>Logs & Reports</h2>
+    <div class="actions">
+      <input type="date" [(ngModel)]="startDate" />
+      <input type="date" [(ngModel)]="endDate" />
+      <button (click)="exportLogs()">Export Logs</button>
+    </div>
+  </div>
+
+  <div class="filters">
+    <select [(ngModel)]="selectedType">
+      <option value="">All Types</option>
+      <option value="user">User Actions</option>
+      <option value="system">System Errors</option>
+      <option value="login">Login Activity</option>
+    </select>
+    <input
+      type="text"
+      placeholder="Search by keyword..."
+      [(ngModel)]="searchKeyword"
+    />
+    <button (click)="applyFilters()">Apply Filter</button>
+  </div>
+
+  <table class="logs-table">
+    <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>User</th>
+        <th>Action</th>
+        <th>Status</th>
+        <th>IP Address</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+  <ng-container *ngFor="let log of filteredLogs">
+    <tr>
+      <td>{{ log.timestamp }}</td>
+      <td>{{ log.user }}</td>
+      <td>{{ log.action }}</td>
+      <td>
+        <span
+          [class.success]="log.status === 'Success'"
+          [class.error]="log.status === 'Failed'"
+        >
+          {{ log.status }}
+        </span>
+      </td>
+      <td>{{ log.ip }}</td>
+      <td>
+        <button (click)="toggleDetails(log)">
+          {{ log.showDetails ? 'Hide' : 'View' }}
+        </button>
+      </td>
+    </tr>
+    <tr *ngIf="log.showDetails">
+      <td colspan="6" class="log-details">{{ log.details }}</td>
+    </tr>
+  </ng-container>
+</tbody>
+
+  </table>
+</div>

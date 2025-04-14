@@ -1,0 +1,40 @@
+<div class="security-container">
+  <h2>Security Centre</h2>
+
+  <section class="security-events">
+    <h3>Recent Security Events</h3>
+    <ul>
+      <li *ngFor="let event of securityEvents">
+        <span class="event-icon">{{ event.icon }}</span>
+        <div class="event-details">
+          <strong>{{ event.description }}</strong>
+          <p>{{ event.timestamp }} | User: {{ event.user }} | IP: {{ event.ip }}</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="security-settings">
+    <h3>Security Settings</h3>
+    <div class="setting">
+      <label>
+        <input type="checkbox" [(ngModel)]="settings.enable2FA" />
+        Enable Two-Factor Authentication (2FA)
+      </label>
+    </div>
+    <div class="setting">
+      <label>
+        <input type="checkbox" [(ngModel)]="settings.emailAlerts" />
+        Email Alerts for Suspicious Activity
+      </label>
+    </div>
+    <div class="setting">
+      <label for="timeout">Session Timeout Duration:</label>
+      <select id="timeout" [(ngModel)]="settings.sessionTimeout">
+        <option *ngFor="let time of timeoutOptions" [value]="time">
+          {{ time }} mins
+        </option>
+      </select>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,32 @@
+<div class="admin-overview-container">
+  <h1 class="page-title">Admin Dashboard Overview</h1>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <h2>{{ totalUsers }}</h2>
+      <p>Total Users</p>
+    </div>
+    <div class="metric-card">
+      <h2>{{ jobPostings }}</h2>
+      <p>Job Postings</p>
+    </div>
+    <div class="metric-card">
+      <h2>{{ activeEmployers }}</h2>
+      <p>Active Employers</p>
+    </div>
+    <div class="metric-card flagged">
+      <h2>{{ flaggedAccounts }}</h2>
+      <p>Flagged Accounts</p>
+    </div>
+  </div>
+
+  <div class="recent-activity">
+    <h2>Recent Activity</h2>
+    <ul>
+      <li *ngFor="let activity of recentActivities">
+        <span class="activity-text">{{ activity.activity }}</span>
+        <span class="timestamp">{{ activity.time }}</span>
+      </li>
+    </ul>
+  </div>
+</div>

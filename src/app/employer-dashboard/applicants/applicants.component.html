@@ -1,0 +1,125 @@
+<div class="page-header">
+  <div class="titles">
+    <h1>Applicants</h1>
+    <p>Frontend Developer • Posted Apr 2, 2025 • 42 applicants</p>
+  </div>
+  <div class="job-dropdown">
+    <select>
+      <option>Frontend Developer</option>
+      <option>Backend Developer</option>
+      <option>UI/UX Designer</option>
+    </select>
+  </div>
+</div>
+
+<div class="section-title">
+  <h2>Top Matches</h2>
+</div>
+
+<div class="applicants-list">
+  <ng-container *ngIf="applicants.length > 0; else noApplicants">
+    <div class="applicant-card" *ngFor="let applicant of applicants">
+      <div class="applicants-info">
+        <div class="avatar">{{ applicant.initials }}</div>
+        <div class="details">
+          <h3>{{ applicant.name }}</h3>
+          <p>{{ applicant.role }}</p>
+          <p class="meta">
+            {{ applicant.location }} • {{ applicant.experience }} experience
+          </p>
+        </div>
+        <div class="score">
+          <span class="badge">{{ applicant.matchScore }}%</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="outlined">View Profile</button>
+        <button class="outlined" *ngIf="applicant.resumeAvailable">
+          View Resume
+        </button>
+        <button class="green">Shortlist</button>
+        <button class="red">Reject</button>
+        <button class="blue" (click)="openInterviewModal(applicant)">
+          Schedule Interview
+        </button>
+      </div>
+    </div>
+  </ng-container>
+
+  <ng-template #noApplicants>
+     <div class="empty-state">
+      <img src="box.png" alt="No Applicants" />
+      <h3>No applicants yet</h3>
+      <p>Once candidates apply, you'll see their profiles here.</p>
+    </div>
+  </ng-template>
+</div>
+
+<!-- Schedule Interview Modal -->
+<div class="modal-backdrop" *ngIf="showModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Schedule Interview with {{ selectedApplicant?.name }}</h2>
+      <span class="close" (click)="closeModal()">×</span>
+    </div>
+    <div class="modal-body">
+      <div class="interview-type">
+        <label>Interview Type:</label>
+        <div class="type-options">
+          <button
+            [class.selected]="interviewType === 'Video Call'"
+            (click)="setType('Video Call')"
+          >
+            Video Call
+          </button>
+          <button
+            [class.selected]="interviewType === 'Phone Call'"
+            (click)="setType('Phone Call')"
+          >
+            Phone Call
+          </button>
+          <button
+            [class.selected]="interviewType === 'In person'"
+            (click)="setType('In person')"
+          >
+            In person
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Date:</label>
+        <input type="date" [(ngModel)]="interviewDate" />
+      </div>
+
+      <div class="form-group">
+        <label>Time:</label>
+        <input type="time" [(ngModel)]="interviewTime" />
+      </div>
+
+      <div class="form-group">
+        <label>Duration:</label>
+        <select [(ngModel)]="interviewDuration">
+          <option>15 minutes</option>
+          <option>30 minutes</option>
+          <option>45 minutes</option>
+          <option>1 hour</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>Notes (Optional):</label>
+        <textarea
+          [(ngModel)]="interviewNotes"
+          placeholder="Add more info..."
+        ></textarea>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="outlined" (click)="closeModal()">Cancel</button>
+      <button class="blue" (click)="sendInvitation()">Send Invitation</button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="settings-container">
+  <h2>Admin Settings</h2>
+
+  <section class="settings-section">
+    <h3>Profile Settings</h3>
+    <div class="form-group">
+      <label>Name</label>
+      <input [(ngModel)]="admin.name" placeholder="Admin Name" />
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input [(ngModel)]="admin.email" placeholder="Email Address" />
+    </div>
+    <div class="form-group">
+      <label>Change Password</label>
+      <input type="password" placeholder="New Password" />
+    </div>
+  </section>
+
+  <section class="settings-section">
+    <h3>Notification Preferences</h3>
+    <div class="toggle-group">
+      <label>
+        <input type="checkbox" [(ngModel)]="notifications.email" /> Email Notifications
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="notifications.system" /> System Alerts
+      </label>
+      <label>
+        <input type="checkbox" [(ngModel)]="notifications.reports" /> Weekly Reports
+      </label>
+    </div>
+  </section>
+
+  <section class="settings-section">
+    <h3>Platform Settings</h3>
+    <div class="form-group">
+      <label>System Language</label>
+      <select [(ngModel)]="platform.language">
+        <option>English</option>
+        <option>French</option>
+        <option>Spanish</option>
+      </select>
+    </div>
+    <label class="toggle-label">
+      <input type="checkbox" [(ngModel)]="platform.maintenanceMode" />
+      Enable Maintenance Mode
+    </label>
+  </section>
+
+  <section class="settings-section danger-zone">
+    <h3>Danger Zone</h3>
+    <button class="danger-button" (click)="deactivateAccount()">Deactivate Account</button>
+    <button class="danger-button" (click)="resetPlatform()">Reset Platform</button>
+  </section>
+</div>

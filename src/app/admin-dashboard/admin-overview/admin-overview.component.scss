@@ -1,0 +1,79 @@
+.admin-overview-container {
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+}
+
+.page-title {
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #1e293b;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metric-card {
+  padding: 1.5rem;
+  background: #f8fafc;
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  text-align: center;
+
+  h2 {
+    font-size: 2rem;
+    color: #2563eb;
+    margin: 0;
+  }
+
+  p {
+    font-size: 0.95rem;
+    margin-top: 0.25rem;
+    color: #475569;
+  }
+
+  &.flagged {
+    background-color: #fce3e390;
+    h2 {
+      color: #dc2626;
+    }
+  }
+}
+
+.recent-activity {
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #0f172a;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      background: #f1f5f9;
+      padding: 1rem;
+      margin-bottom: 0.75rem;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .activity-text {
+        font-size: 0.95rem;
+        color: #1e293b;
+      }
+
+      .timestamp {
+        font-size: 0.85rem;
+        color: #94a3b8;
+      }
+    }
+  }
+}

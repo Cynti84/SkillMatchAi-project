@@ -1,0 +1,29 @@
+<!-- Employer Signup Form -->
+<div class="signup-container">
+  <h2>Set Up Company Profile</h2>
+  <form (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    <input type="text" placeholder="Company Name" [(ngModel)]="companyName" name="companyName" required />
+    <input type="url" placeholder="Website" [(ngModel)]="website" name="website" required />
+
+    <label for="industry">Select Industry</label>
+    <select
+     [(ngModel)]="selectedIndustry"
+     name="industry"
+     [ngModelOptions]="{ standalone: true }"
+     required >
+     <option value="" disabled selected>Select one</option>
+     <option *ngFor="let option of industryOptions" [value]="option">{{ option }}</option>
+    </select>
+
+
+    <textarea placeholder="Company Description" [(ngModel)]="description" name="description" rows="4" required></textarea>
+
+    <label>Upload Logo (optional)</label>
+    <input type="file" (change)="onLogoSelected($event)" />
+
+    <input type="email" placeholder="Work Email (optional)" [(ngModel)]="workEmail" name="workEmail" />
+    <input type="tel" placeholder="Phone Number" [(ngModel)]="phoneNumber" name="phoneNumber" />
+
+    <button type="submit">Finish and go to Dashboard</button>
+  </form>
+</div>

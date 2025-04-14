@@ -1,0 +1,162 @@
+.profile-container {
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+  color: #111827;
+
+  .header {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+
+    .edit-button {
+      border: 1px solid #cbd5e1;
+      background: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      color: #2563eb;
+      cursor: pointer;
+    }
+
+    .user-details {
+      flex: 1;
+      margin-left: 1rem;
+
+      h2 {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      p {
+        color: #6b7280;
+      }
+    }
+
+    .profile-photo {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+  }
+
+  .section {
+    margin-bottom: 2rem;
+
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .skills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+
+      .skill {
+        background-color: #e0f2fe;
+        color: #2563eb;
+        padding: 0.4rem 0.8rem;
+        border-radius: 9999px;
+        font-size: 0.9rem;
+      }
+    }   
+
+    .portfolio-button {
+      border: 1px solid #2563eb;
+      background: none;
+      color: #2563eb;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      margin-top: 1rem;
+      cursor: pointer;
+    }
+
+    .applied-jobs {
+      .job-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e5e7eb;
+
+        .job-info {
+          p {
+            font-size: 0.9rem;
+            color: #6b7280;
+          }
+        }
+
+        .status {
+          padding: 0.3rem 0.8rem;
+          border-radius: 12px;
+          font-size: 0.8rem;
+          font-weight: 500;
+
+          &.pending {
+            background-color: #fef9c3;
+            color: #92400e;
+          }
+
+          &.rejected {
+            background-color: #fee2e2;
+            color: #b91c1c;
+          }
+        }
+      }
+    }
+
+    .settings-card {
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1rem;
+
+      .setting-item {
+        padding: 0.5rem 0;
+        cursor: pointer;
+        font-weight: 500;
+        color: #374151;
+
+        &.delete {
+          color: #b91c1c;
+        }
+      }
+    }
+  }
+  .flex{
+    display: flex;
+    flex-wrap: wrap;
+    
+     .resume-section {
+      display: flex;
+      flex-direction: column;
+      flex: 0.7;
+
+
+      .file-pill {
+        background: #f3f4f6;
+        padding: 0.5rem 1rem;
+        border-radius: 6px;
+      }
+
+      .edit-resume {
+        border: 1px solid #2563eb;
+        background: none;
+        color: #2563eb;
+        padding: 0.5rem 0.8rem;
+        border-radius: 4px;
+        margin-top: 1rem;
+        cursor: pointer;
+      }
+    }
+
+  }
+}

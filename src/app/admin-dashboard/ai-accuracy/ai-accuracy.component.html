@@ -1,0 +1,81 @@
+<div class="ai-accuracy-container">
+  <h2 class="page-title">AI Accuracy & Insights</h2>
+  <p class="subtitle">Monitor and improve AI performance based on user feedback and system analysis</p>
+
+  <div class="metrics-grid">
+    <div class="metric-card">
+      <h3>Recommendation Accuracy</h3>
+      <p class="value">89.3%</p>
+    </div>
+    <div class="metric-card">
+      <h3>Reported Mismatches</h3>
+      <p class="value">17 this week</p>
+    </div>
+    <div class="metric-card">
+      <h3>Positive Feedback Rate</h3>
+      <p class="value">92%</p>
+    </div>
+    <div class="metric-card">
+      <h3>Last Model Update</h3>
+      <p class="value">April 7, 2025</p>
+    </div>
+  </div>
+
+  <section class="chart-section">
+    <div class="chart-card">
+      <canvas baseChart
+              [data]="barChartData"
+              [options]="barChartOptions"
+              [type]="barChartType">
+      </canvas>
+    </div>
+
+    <div class="chart-card">
+      <canvas baseChart
+              [data]="lineChartData"
+              [options]="lineChartOptions"
+              [type]="lineChartType">
+      </canvas>
+    </div>
+  </section>
+
+  <div class="table-section">
+    <h3>Reported Mismatches</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Job/Recommendation</th>
+          <th>Feedback</th>
+          <th>Notes</th>
+          <th>Date</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Jane Doe</td>
+          <td>UX Designer</td>
+          <td>Mismatch</td>
+          <td>Not relevant to skills</td>
+          <td>Apr 10, 2025</td>
+          <td><span class="status pending">Pending</span></td>
+        </tr>
+        <tr>
+          <td>John Smith</td>
+          <td>Data Analyst</td>
+          <td>Mismatch</td>
+          <td>Wrong location</td>
+          <td>Apr 9, 2025</td>
+          <td><span class="status resolved">Resolved</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="actions">
+    <button class="btn-primary">Trigger Retraining</button>
+    <button class="btn-outline">Upload Training Data</button>
+    <button class="btn-outline">View Logs</button>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+<div class="applications-wrapper">
+  <div class="header">
+    <h2>My Applications</h2>
+  </div>
+
+  <div class="top-bar">
+    <div class="tabs">
+      <button [class.active]="activeTab === 'All'" (click)="activeTab = 'All'">All (6)</button>
+      <button (click)="activeTab = 'Pending'">Pending (2)</button>
+      <button (click)="activeTab = 'Interview'">Interview (2)</button>
+      <button (click)="activeTab = 'Accepted'">Accepted (1)</button>
+      <button (click)="activeTab = 'Rejected'">Rejected (1)</button>
+    </div>
+    <div class="actions">
+      <input type="text" placeholder="Search applications..." [(ngModel)]="searchTerm" />
+      <select [(ngModel)]="sortBy">
+        <option value="Recent">Sort by: Recent</option>
+        <option value="Oldest">Sort by: Oldest</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="applications-list">
+    <div class="card" *ngFor="let app of applications">
+      <div class="details">
+        <h3>{{ app.title }}</h3>
+        <p>{{ app.company }} • {{ app.location }}</p>
+        <p class="date">Applied: {{ app.date }}</p>
+        <span class="badge type">{{ app.type }}</span>
+        <span class="badge status" [ngClass]="app.status.toLowerCase()">{{ app.status }}</span>
+      </div>
+      <div class="actions">
+        <button class="outline red" *ngIf="app.status === 'Pending'">Withdraw</button>
+        <button class="outline blue" *ngIf="app.status === 'Interview'">Interview Info</button>
+        <button class="outline green" *ngIf="app.status === 'Accepted'">View Offer</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="pagination">
+    <button class="page active">1</button>
+    <button class="page">2</button>
+    <button class="page">3</button>
+    <button class="page">›</button>
+  </div>
+</div>

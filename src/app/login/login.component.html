@@ -1,0 +1,23 @@
+<!-- Navbar -->
+<nav class="auth-navbar">
+  <div class="logo">SkillMatch AI</div>
+  <div class="nav-links">
+    <a routerLink="/signup">Signup</a>
+    <a routerLink="/">← Back</a>
+  </div>
+</nav>
+
+<!-- Login Form -->
+<div class="login-container">
+  <h2>Login</h2>
+  <form (ngSubmit)="onSubmit()">
+    <input type="email" placeholder="Email" [(ngModel)]="email" name="email" required />
+    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" required />
+    <p>Don't have an account? <a routerLink="/signup">Sign up</a></p>
+    <button type="submit">Login</button>
+  </form>
+</div>
+<footer>
+  <p>&copy; 2025 SkillMatch AI. All rights reserved.</p>
+</footer>
+

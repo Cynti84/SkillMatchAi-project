@@ -1,0 +1,34 @@
+<div class="ai-header">
+  <h1>AI Assistant</h1>
+</div>
+
+<div class="chat-container">
+  <div *ngFor="let message of messages" class="message-row" [ngClass]="message.from">
+    <div class="avatar"></div>
+    <div class="message-bubble">
+      <p>{{ message.text }}</p>
+
+      <!-- Show candidate cards if present -->
+      <!-- <div class="candidate-cards" *ngIf="message.candidates">
+        <div class="candidate-card" *ngFor="let c of message.candidates">
+          <div class="left">
+            <h4>{{ c.name }}</h4>
+            <span class="match">{{ c.match }}</span>
+          </div>
+          <div class="right">
+            <p><strong>Skills:</strong> {{ c.skills }}</p>
+            <p><strong>Experience:</strong> {{ c.experience }}</p>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>
+
+<!-- Input Field -->
+<div class="chat-input">
+  <input type="text" [(ngModel)]="userInput" placeholder="Ask about candidates or skills..." />
+  <button (click)="sendMessage()">
+    ➤
+  </button>
+</div>

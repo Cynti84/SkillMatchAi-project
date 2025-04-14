@@ -1,0 +1,114 @@
+.job-listings-container {
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: bold;
+    }
+
+    .primary-btn {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #1e4fcc;
+      }
+    }
+  }
+
+  .filters {
+    margin: 1.5rem 0;
+    display: flex;
+    gap: 1rem;
+
+    .filter {
+      padding: 0.5rem 1rem;
+      border: 1px solid #ccc;
+      border-radius: 999px;
+      background: white;
+      cursor: pointer;
+
+      &.active {
+        background-color: #2563eb;
+        color: white;
+        border-color: #2563eb;
+      }
+    }
+  }
+
+  .job-card {
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    .job-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        font-size: 1.25rem;
+        font-weight: bold;
+      }
+
+      .status-badge {
+        padding: 0.3rem 0.75rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+
+        &.Active {
+          background-color: #d1fae5;
+          color: #065f46;
+        }
+
+        &.Closed {
+          background-color: #f3f4f6;
+          color: #9ca3af;
+        }
+      }
+    }
+
+    .company-info, .meta-info {
+      font-size: 0.9rem;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    .actions {
+      margin-top: 1rem;
+      display: flex;
+      gap: 0.75rem;
+
+      .outline-btn {
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background: none;
+        padding: 0.4rem 0.9rem;
+        cursor: pointer;
+        color: #2563eb;
+
+        &.red {
+          color: #dc2626;
+          border-color: #dc2626;
+        }
+
+        &:hover {
+          background-color: #f9f9f9;
+        }
+      }
+    }
+  }
+}

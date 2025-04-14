@@ -1,0 +1,38 @@
+<div class="job-listings-container">
+  <div class="header">
+    <h2>My Posted Jobs</h2>
+    <button class="primary-btn">+ Post New Job</button>
+  </div>
+
+  <div class="filters">
+    <button class="filter active">All Jobs (4)</button>
+    <button class="filter">Active (3)</button>
+    <button class="filter">Closed (1)</button>
+  </div>
+
+  <div class="job-card" *ngFor="let job of jobs">
+    <div class="job-top-row">
+      <h3>{{ job.title }}</h3>
+      <span class="status-badge" [ngClass]="job.status">{{ job.status }}</span>
+    </div>
+
+    <div class="company-info">
+      <span>{{ job.company }}</span> •
+      <span>{{ job.type }}</span> •
+      <span>{{ job.setting }}</span>
+    </div>
+
+    <div class="meta-info">
+      📎 {{ job.applicants }} applicants • 👁️ {{ job.views }} views • 
+      📅 Posted: {{ job.posted }} | Expires: {{ job.expires }}
+    </div>
+
+    <div class="actions">
+      <button class="outline-btn">Edit</button>
+      <button class="outline-btn red">
+        {{ job.status === 'Closed' ? 'Reopen' : 'Close' }}
+      </button>
+      <button class="outline-btn red">Delete</button>
+    </div>
+  </div>
+</div>

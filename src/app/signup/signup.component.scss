@@ -1,0 +1,55 @@
+/* Navbar styles */
+.auth-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0d4eb7;
+  padding: 1rem 2rem;
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .nav-links {
+    a {
+      margin-left: 1rem;
+      font-size: 1rem;
+      text-decoration: none;
+      font-weight: 500;
+      color: #fff;
+      position: relative;
+      transition: color 0.2s ease;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        left: 0;
+        bottom: -3px;
+        background: #fff;
+        transition: width 0.3s ease;
+      }
+
+      &:hover {
+        color: #d6e4ff;
+
+        &::after {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+/* Footer */
+footer {
+  padding: 0.5rem;
+  text-align: center;
+  background: #222;
+  color: white;
+//   margin-top: 3rem;
+}

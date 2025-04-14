@@ -1,0 +1,115 @@
+.notifications-wrapper {
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+
+      .outlined, .active {
+        border: 1px solid #2563eb;
+        padding: 0.5rem 1rem;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 0.9rem;
+        background: white;
+        color: #2563eb;
+
+        &.active {
+          background: #2563eb;
+          color: white;
+        }
+
+        &.right {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  .notification-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: relative;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    .icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 1.2rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .content {
+      flex: 1;
+
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
+        color: #444;
+      }
+
+      .actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+
+        button {
+          padding: 0.4rem 0.8rem;
+          border-radius: 5px;
+          font-size: 0.85rem;
+          cursor: pointer;
+          border: 1px solid #2563eb;
+          background: white;
+          color: #2563eb;
+          transition: background 0.2s;
+
+          &.primary {
+            background: #2563eb;
+            color: white;
+          }
+
+          &:hover {
+            background: #ebf2ff;
+          }
+        }
+      }
+    }
+
+    .timestamp {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  }
+}

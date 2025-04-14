@@ -1,0 +1,19 @@
+<div class="dashboard-container">
+  <aside class="sidebar">
+    <div class="logo">SkillMatch AI</div>
+    <nav>
+      <a routerLink="home" routerLinkActive="active">Overview</a>
+      <a routerLink="job-listings" routerLinkActive="active">Job Listings</a>
+      <a routerLink="applicants" routerLinkActive="active">Applicants</a>
+      <a routerLink="ai-assistant" routerLinkActive="active">AI Assistant</a>
+      <a routerLink="interviews" routerLinkActive="active">Interviews</a>
+      <a routerLink="analytics" routerLinkActive="active">Analytics</a>
+      <a routerLink="settings" routerLinkActive="active">Settings</a>
+      <a routerLink="/login">Logout</a>
+    </nav>
+  </aside> 
+
+  <main class="main-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
