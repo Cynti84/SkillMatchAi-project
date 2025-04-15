@@ -107,4 +107,11 @@ export const routes: Routes = [
         (m) => m.PortfolioComponent
       ),
   },
+  {
+    path: 'job-seeker-dashboard/job-application',
+    loadComponent: () =>
+      import(
+        './job-seeker-dashboard/job-application/job-application.component'
+      ).then((m) => m.JobApplicationComponent),
+  },
 ]; 

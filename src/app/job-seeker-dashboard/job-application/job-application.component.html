@@ -1,0 +1,39 @@
+<div class="application-form">
+  <h2>Apply for Job</h2>
+
+  <div class="form-group">
+    <label>Full Name</label>
+    <input type="text" [(ngModel)]="fullName" />
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input type="email" [(ngModel)]="email" />
+  </div>
+
+  <div class="form-group">
+    <label>Cover Letter</label>
+    <textarea [(ngModel)]="coverLetter" rows="6" placeholder="Write a short cover letter..."></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Upload Resume (PDF/DOC)</label>
+    <input type="file" (change)="onResumeUpload($event)" accept=".pdf,.doc,.docx" />
+  </div>
+
+  <div class="portfolio-preview">
+    <p *ngIf="portfolioPDF">📎 Portfolio PDF will be attached automatically</p>
+    <p *ngIf="!portfolioPDF" class="warning">⚠️ No portfolio found – nothing will be attached.</p>
+  </div>
+  
+  <div class="portfolio-actions" *ngIf="portfolioPDF">
+    <button (click)="downloadPortfolio()">Download Portfolio PDF</button>
+    <button (click)="previewPortfolio()">Preview Portfolio</button>
+  </div>
+
+
+  <div class="actions">
+    <button class="cancel-btn" (click)="cancel()">Cancel</button>
+    <button class="submit-btn" (click)="submitApplication()">Submit Application</button>
+  </div>
+</div>

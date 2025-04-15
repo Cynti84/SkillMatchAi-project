@@ -21,7 +21,7 @@
   </div>
 
   <div class="applications-list">
-    <div class="card" *ngFor="let app of applications">
+    <div class="card" *ngFor="let app of applications; let i = index">
       <div class="details">
         <h3>{{ app.title }}</h3>
         <p>{{ app.company }} • {{ app.location }}</p>
@@ -30,17 +30,22 @@
         <span class="badge status" [ngClass]="app.status.toLowerCase()">{{ app.status }}</span>
       </div>
       <div class="actions">
-        <button class="outline red" *ngIf="app.status === 'Pending'">Withdraw</button>
+        <button class="outline red" *ngIf="app.status === 'Pending'" (click)="withdraw(i)">Withdraw</button>
         <button class="outline blue" *ngIf="app.status === 'Interview'">Interview Info</button>
         <button class="outline green" *ngIf="app.status === 'Accepted'">View Offer</button>
       </div>
     </div>
   </div>
 
-  <div class="pagination">
+  <div *ngIf="applications.length === 0" class="empty-state">
+    <p>You haven't applied to any jobs yet.</p>
+  </div>
+
+
+  <!-- <div class="pagination">
     <button class="page active">1</button>
     <button class="page">2</button>
     <button class="page">3</button>
     <button class="page">›</button>
-  </div>
+  </div> -->
 </div>
