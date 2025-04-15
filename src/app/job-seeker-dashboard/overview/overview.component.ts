@@ -1,11 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
-  imports: [CommonModule],
+  imports: [CommonModule,],
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+  styleUrls: ['./overview.component.scss'],
 })
 export class OverviewComponent {
   userName = 'John Doe';
@@ -16,8 +17,28 @@ export class OverviewComponent {
     { title: 'Backend Engineer', company: 'CodeWave', match: 80 },
   ];
   applications = [
-    { title: 'Data Analyst', company: 'InsightCorp', date: '2025-04-05', status: 'Pending' },
-    { title: 'Software Engineer', company: 'DevSoft', date: '2025-04-01', status: 'Interview Scheduled' },
-    { title: 'QA Tester', company: 'BugHunt', date: '2025-03-30', status: 'Rejected' },
+    {
+      title: 'Data Analyst',
+      company: 'InsightCorp',
+      date: '2025-04-05',
+      status: 'Pending',
+    },
+    {
+      title: 'Software Engineer',
+      company: 'DevSoft',
+      date: '2025-04-01',
+      status: 'Interview Scheduled',
+    },
+    {
+      title: 'QA Tester',
+      company: 'BugHunt',
+      date: '2025-03-30',
+      status: 'Rejected',
+    },
   ];
+  constructor(private router: Router) {}
+
+  navigateToProfile() {
+    this.router.navigate(['/job-seeker-dashboard/profile']);
+  }
 }

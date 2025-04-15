@@ -2,7 +2,22 @@
   display: flex;
   height: 100vh;
   font-family: 'Inter', sans-serif;
+  position: relative;
 
+  .sidebar-toggle {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: #182B48;
+    color: white;
+    border: none;
+    font-size: 1rem;
+    padding: 0.3rem 0.5rem;
+    border-radius: 5px;
+    z-index: 10;
+    cursor: pointer;
+  }
 
   .sidebar {
     width: 240px;
@@ -11,13 +26,15 @@
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease;
+    z-index: 9;
 
     .logo {
       font-size: 1.5rem;
       font-weight: bold;
       margin-bottom: 2rem;
       margin-left: 1rem;
-    } 
+    }
 
     nav a {
       display: flex;
@@ -26,7 +43,7 @@
       text-decoration: none;
       margin: 0.5rem 0;
       font-weight: 500;
-      transition:  0.7s ease;
+      transition: 0.7s ease;
       padding: 0.5rem 1rem;
 
       &.active,
@@ -42,5 +59,53 @@
     padding: 2rem;
     background: #f9f9f9;
     overflow-y: auto;
+    transition: margin-left 0.3s ease;
   }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 240px;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  }
+
+  .sidebar.collapsed {
+    transform: translateX(0);
+  }
+
+  .sidebar-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+  }
+
+  .main-content.expanded {
+    margin-left: 0 !important;
+  }
+
+  // Optional backdrop
+  .backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 900;
+  }
+}
+
 }

@@ -84,8 +84,13 @@ export const routes: Routes = [
       { path: 'ai-accuracy', component: AiAccuracyComponent },
       { path: 'system-performance', component: SystemPerformanceComponent },
       { path: 'reports-and-logs', component: ReportsAndLogsComponent },
-      
-      
-    ]
-  }
-];
+    ],
+  },
+  {
+    path: 'job-seeker-dashboard/job-details/:id',
+    loadComponent: () =>
+      import('./job-seeker-dashboard/job-details/job-details.component').then(
+        (m) => m.JobDetailsComponent
+      ),
+  },
+]; 
