@@ -1,13 +1,21 @@
 import { Injectable } from '@angular/core';
 
 export interface JobApplication {
-  title: string;
-  company: string;
+  fullName: string;
+  email: string;
+  skills: string[];
+  resumeFileName: string;
+  portfolioExists: boolean;
+  matchScore: number;
   location: string;
-  date: string;
-  type: string;
+  experience: string;
+  jobTitle: string;
+  company: string;
   status: string;
-}
+  initials?: string;
+  date?: string; // applied date
+  type?: string; // Full-time, Part-time, etc.
+} 
 
 @Injectable({
   providedIn: 'root',

@@ -23,7 +23,7 @@
   <div class="applications-list">
     <div class="card" *ngFor="let app of applications; let i = index">
       <div class="details">
-        <h3>{{ app.title }}</h3>
+        <h3>{{ app.jobTitle }}</h3>
         <p>{{ app.company }} • {{ app.location }}</p>
         <p class="date">Applied: {{ app.date }}</p>
         <span class="badge type">{{ app.type }}</span>

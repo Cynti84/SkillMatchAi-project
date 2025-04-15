@@ -39,12 +39,12 @@
       <h3>Application Status</h3>
       <div *ngFor="let app of applications" class="application-item">
         <div class="application-info">
-          <strong>{{ app.title }}</strong>
+          <strong>{{ app.jobTitle }}</strong> 
           <p>{{ app.company }} • Applied on {{ app.date }}</p>
         </div>
         <span class="status-badge" [ngClass]="app.status.toLowerCase().replace(' ', '-')">
           {{ app.status }}
-        </span>
+        </span> 
       </div>
     </div>
 

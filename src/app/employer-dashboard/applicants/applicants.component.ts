@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { ApplicationService, JobApplication } from '../../services/application.service';
+
 
 @Component({
   selector: 'app-applicants',
@@ -9,35 +11,12 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./applicants.component.scss'],
 })
 export class ApplicantsComponent {
-  applicants = [
-    {
-      initials: 'JD',
-      name: 'John Doe',
-      role: 'Senior Frontend Developer',
-      location: 'Lagos, Nigeria',
-      experience: '5 years',
-      matchScore: 94,
-      resumeAvailable: true,
-    },
-    {
-      initials: 'AS',
-      name: 'Ada Smith',
-      role: 'Frontend Engineer',
-      location: 'Nairobi, Kenya',
-      experience: '3 years',
-      matchScore: 89,
-      resumeAvailable: false,
-    },
-    {
-      initials: 'RJ',
-      name: 'Raj Joshi',
-      role: 'React Developer',
-      location: 'Mumbai, India',
-      experience: '4 years',
-      matchScore: 82,
-      resumeAvailable: true,
-    },
-  ];
+  applicants: JobApplication[] = [];
+
+  constructor(private appService: ApplicationService) {
+    const allApps = this.appService.getApplications();
+    this.applicants = allApps.filter((app) => app.fullName && app.jobTitle);
+  }
 
   showModal = false;
   selectedApplicant: any = null;
@@ -62,8 +41,7 @@ export class ApplicantsComponent {
   }
 
   sendInvitation() {
-    // Logic to send invitation goes here
-    console.log(`Interview scheduled with ${this.selectedApplicant?.name}`);
+    console.log(`Interview scheduled with ${this.selectedApplicant?.fullName}`);
     this.closeModal();
   }
 }

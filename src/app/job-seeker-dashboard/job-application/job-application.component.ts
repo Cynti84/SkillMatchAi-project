@@ -92,12 +92,25 @@ export class JobApplicationComponent {
 
     // Save application to localStorage via ApplicationService
     const newApp: JobApplication = {
-      title: this.jobDetails?.title || 'Unknown Title',
-      company: this.jobDetails?.company || 'Unknown Company',
-      location: this.jobDetails?.location || 'Not specified',
-      type: this.jobDetails?.type || 'N/A',
-      date: new Date().toLocaleDateString(),
+      fullName: this.fullName,
+      email: this.email,
+      skills: ['JavaScript', 'React', 'Node.js'],
+      resumeFileName: this.resumeFile?.name || '',
+      portfolioExists: !!this.portfolioPDF,
+      matchScore: 92,
+      location: 'Nairobi, Kenya',
+      experience: '3 years',
+      jobTitle: this.jobDetails?.title || 'N/A',
+      company: this.jobDetails?.company || 'N/A',
       status: 'Pending',
+
+      // ✅ Newly added optional fields
+      initials: this.fullName
+        .split(' ')
+        .map((n) => n[0])
+        .join(''),
+      date: new Date().toLocaleDateString(),
+      type: 'Full-time', 
     };
 
     this.appService.saveApplication(newApp); // ✅ Save it!

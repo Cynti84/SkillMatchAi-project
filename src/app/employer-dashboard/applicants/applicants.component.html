@@ -22,20 +22,20 @@
       <div class="applicants-info">
         <div class="avatar">{{ applicant.initials }}</div>
         <div class="details">
-          <h3>{{ applicant.name }}</h3>
-          <p>{{ applicant.role }}</p>
+          <h3>{{ applicant.fullName }}</h3>
+          <p>{{ applicant.jobTitle }}</p>
           <p class="meta">
-            {{ applicant.location }} • {{ applicant.experience }} experience
+            {{ applicant.location }} • {{ applicant.experience }} 
           </p>
         </div>
         <div class="score">
           <span class="badge">{{ applicant.matchScore }}%</span>
-        </div>
+        </div> 
       </div>
 
       <div class="actions">
         <button class="outlined">View Profile</button>
-        <button class="outlined" *ngIf="applicant.resumeAvailable">
+        <button class="outlined" *ngIf="applicant.resumeFileName">
           View Resume
         </button>
         <button class="green">Shortlist</button>
