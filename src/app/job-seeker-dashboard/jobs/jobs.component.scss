@@ -96,3 +96,14 @@
     }
   }
 }
+@media (max-width: 768px) {
+  .jobs-container{
+    padding: 0;
+
+    .job-card{
+      display: flex;
+      flex-direction: column;
+    }
+
+  }
+}

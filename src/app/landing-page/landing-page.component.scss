@@ -110,16 +110,16 @@ header {
   }
 
   .hero-image {
-  max-width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;  // Ensures image is centered vertically if needed
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center; // Ensures image is centered vertically if needed
 
-  img {
-    width: 300px; // You can increase this to scale up the image
-    height: auto;
+    img {
+      width: 300px; // You can increase this to scale up the image
+      height: auto;
+    }
   }
-}
 }
 
 /* Features */

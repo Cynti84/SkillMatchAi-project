@@ -179,3 +179,32 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .applications-wrapper{
+    padding: 0;
+
+    .top-bar{
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .actions{
+      display: flex;
+      flex-direction: column;
+
+      input{
+        margin-top: 1rem;
+      }
+    }
+
+    .applications-list{
+      .card{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  }
+}

@@ -78,3 +78,20 @@
     }
   }
 }
+
+@media (max-width: 768px) {
+  .settings-page{
+    padding: 0;
+
+    .settings-section{
+      label{
+      select, input[type="checkbox"] {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+
+      }
+
+    }
+  }
+}
