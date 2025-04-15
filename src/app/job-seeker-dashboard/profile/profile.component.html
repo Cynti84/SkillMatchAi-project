@@ -1,15 +1,18 @@
 <div class="profile-container">
   <!-- Profile Header -->
-   <div class="header">
+  <div class="header">
     <h2>My Profile</h2>
   </div>
   <div class="profile-header">
-    <img [src]="user.profilePhoto" alt="Profile Photo" class="profile-photo" />
+    <img [src]="user.avatar" alt="Profile Photo" class="profile-photo" />
     <div class="user-details">
-      <h2>{{ user.name }}</h2>
+      <h2>{{ user.fullName }}</h2>
       <p>{{ user.email }}</p>
+      <p>{{ user.location }}</p>
     </div>
-    <button class="edit-button">Edit Profile</button>
+    <button class="edit-button" (click)="navigateToEditProfile()">
+      Edit Profile
+    </button>
   </div>
 
   <!-- Skills Section -->
@@ -22,18 +25,19 @@
 
   <!-- Resume Section -->
   <div class="section flex">
-    <div class=" resume-section">
+    <div class="resume-section">
       <h3>Resume</h3>
       <div class="resume-display">
         <span class="file-pill">{{ user.resume }}</span>
-        <button class="edit-resume">Edit</button>
+        <button class="edit-resume" (click)="openResumeEditor()">Edit</button>
+        <button class="delete-resume" (click)="deleteResume()">Delete</button>
       </div>
     </div>
 
     <!-- Portfolio Section -->
     <div class="portfolio-section">
       <h3>Portfolio</h3>
-      <button class="portfolio-button">Build Portfolio</button>
+      <button class="portfolio-button" (click)="navigateToBuildPortfolio()">Build Portfolio</button>
     </div>
   </div>
 
@@ -64,6 +68,23 @@
     <div class="settings-card">
       <div class="setting-item">Change Password</div>
       <div class="setting-item delete">Delete Account</div>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" *ngIf="showResumeModal">
+    <div class="modal">
+      <h3>Update Your Resume</h3>
+      <p>Upload a new CV or resume file (PDF, DOCX).</p>
+      <input
+        type="file"
+        (change)="onFileSelected($event)"
+        accept=".pdf,.doc,.docx"
+      />
+      <div class="actions">
+        <button class="cancel-btn" (click)="cancelResumeUpdate()">
+          Cancel
+        </button>
+      </div>
     </div>
   </div>
 </div>

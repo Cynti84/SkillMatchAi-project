@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-overview',
-  imports: [CommonModule,],
+  imports: [CommonModule],
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss'],
 })
@@ -40,5 +40,12 @@ export class OverviewComponent {
 
   navigateToProfile() {
     this.router.navigate(['/job-seeker-dashboard/profile']);
+  }
+
+  goToJobDetails(job: any) {
+    // You can pass job as navigation extras state
+    this.router.navigate(['/job-seeker-dashboard/job-details', job.title], {
+      state: { job },
+    });
   }
 }

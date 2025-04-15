@@ -93,4 +93,18 @@ export const routes: Routes = [
         (m) => m.JobDetailsComponent
       ),
   },
+  {
+    path: 'job-seeker-dashboard/edit-profile',
+    loadComponent: () =>
+      import('./job-seeker-dashboard/edit-profile/edit-profile.component').then(
+        (m) => m.EditProfileComponent
+      ),
+  },
+  {
+    path: 'job-seeker-dashboard/portfolio',
+    loadComponent: () =>
+      import('./job-seeker-dashboard/portfolio/portfolio.component').then(
+        (m) => m.PortfolioComponent
+      ),
+  },
 ]; 

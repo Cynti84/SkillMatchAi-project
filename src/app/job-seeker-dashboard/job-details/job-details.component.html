@@ -1,1 +1,11 @@
-<p>job-details works!</p>
+<div class="job-details-wrapper" *ngIf="job">
+  <h2>{{ job.title }}</h2>
+  <p><strong>Company:</strong> {{ job.company }}</p>
+  <p><strong>Match:</strong> {{ job.match }}%</p>
+  <p>{{job.description}} Lorem ipsum dolor sit amet, consectetur adipiscing elit. (I will later pull full job descriptions)</p>
+
+  <div class="actions">
+    <button class="primary-btn" (click)="applyForJob()">Apply</button>
+    <button class="cancel-btn" (click)="cancel()">Cancel</button>
+  </div>
+</div>

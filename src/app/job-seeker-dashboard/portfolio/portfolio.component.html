@@ -1,0 +1,93 @@
+<div class="portfolio-page">
+  <div class="top-bar">
+    <button class="back-btn" (click)="back()">← Back</button>
+    <h2>My Portfolio</h2>
+    <button class="add-btn" (click)="openModal()">+ Add New Entry</button>
+  </div>
+
+  <div *ngIf="portfolioEntries.length === 0" class="empty-state">
+    <p>No portfolio entries yet. Click “Add New Entry” to get started.</p>
+  </div>
+
+  <div class="portfolio-list">
+    <div class="portfolio-card" *ngFor="let entry of portfolioEntries; let i = index">
+      <div class="card-header">
+        <h3>{{ entry.title }}</h3>
+        <p class="subtext">{{ entry.role }} at {{ entry.company }}</p>
+        <p class="date">
+          {{ entry.startDate }} - {{ entry.ongoing ? 'Present' : entry.endDate }}
+        </p>
+      </div>
+      <div class="card-body">
+        <p>{{ entry.description }}</p>
+        <div class="tags">
+          <span *ngFor="let tag of entry.techStack.split(',')" class="tag">
+            {{ tag.trim() }}
+          </span>
+        </div>
+      </div>
+      <div class="card-actions">
+        <button (click)="openModal(i)">Edit</button>
+        <button (click)="deleteEntry(i)">Delete</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal-backdrop" *ngIf="showModal">
+    <div class="modal">
+      <h3>{{ isEditing ? 'Edit Entry' : 'Add New Entry' }}</h3>
+
+      <div class="form-group">
+        <label>Title</label>
+        <input [(ngModel)]="newEntry.title" />
+      </div>
+
+      <div class="form-group">
+        <label>Entry Type</label>
+        <div class="radio-options">
+          <label><input type="radio" [(ngModel)]="newEntry.type" value="Project" /> Project</label>
+          <label><input type="radio" [(ngModel)]="newEntry.type" value="Experience" /> Experience</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Role</label>
+        <input [(ngModel)]="newEntry.role" />
+      </div>
+
+      <div class="form-group">
+        <label>Company</label>
+        <input [(ngModel)]="newEntry.company" />
+      </div>
+
+      <div class="form-group">
+        <label>Start Date</label>
+        <input type="date" [(ngModel)]="newEntry.startDate" />
+      </div>
+
+      <div class="form-group">
+        <label>End Date</label>
+        <input type="date" [(ngModel)]="newEntry.endDate" [disabled]="newEntry.ongoing" />
+        <label><input type="checkbox" [(ngModel)]="newEntry.ongoing" /> Ongoing</label>
+      </div>
+
+      <div class="form-group">
+        <label>Description</label>
+        <textarea [(ngModel)]="newEntry.description"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>Tech Stack (comma-separated)</label>
+        <input [(ngModel)]="newEntry.techStack" />
+      </div>
+
+      <div class="modal-actions">
+        <button class="cancel-btn" (click)="cancel()">Cancel</button>
+        <button class="save-btn" (click)="saveEntry()">
+          {{ isEditing ? 'Update' : 'Save' }}
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

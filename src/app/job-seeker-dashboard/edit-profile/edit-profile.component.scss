@@ -1,0 +1,121 @@
+.edit-profile-container {
+  max-width: 700px;
+  margin: 3rem auto;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.05);
+  font-family: 'Inter', sans-serif;
+  animation: fadeIn 0.4s ease-in-out;
+
+  h2 {
+    font-size: 1.75rem;
+    color: #1f2937;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+
+    label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #374151;
+    }
+
+    input,
+    textarea {
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 10px;
+      font-size: 1rem;
+      transition: border-color 0.2s ease;
+
+      &:focus {
+        border-color: #2563eb;
+        outline: none;
+      }
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .preview {
+      margin-top: 1rem;
+
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid #3b82f6;
+      }
+    }
+  }
+
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+
+    button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+
+    .primary-btn {
+      background-color: #2563eb;
+      color: white;
+      border: none;
+
+      &:hover {
+        background-color: #1d4ed8;
+      }
+    }
+
+    .cancel-btn {
+      background-color: transparent;
+      border: 1px solid #9ca3af;
+      color: #374151;
+
+      &:hover {
+        background-color: #f3f4f6;
+      }
+    }
+  }
+}
+
+// Entry animation
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+// Responsive tweaks
+@media (max-width: 600px) {
+  .edit-profile-container {
+    padding: 1.5rem;
+    margin: 1.5rem;
+
+    .actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}

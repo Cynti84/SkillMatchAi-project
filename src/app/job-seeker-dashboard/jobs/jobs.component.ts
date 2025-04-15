@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-jobs',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './jobs.component.html',
   styleUrls: ['./jobs.component.scss'],
 })
@@ -55,5 +56,14 @@ export class JobsComponent {
   applyFilters() {
     // Filtering logic handled in getter
     console.log('Filters applied');
+  }
+
+  constructor(private router: Router) {}
+
+  goToJobDetails(job: any) {
+    // You can pass job as navigation extras state
+    this.router.navigate(['/job-seeker-dashboard/job-details', job.title], {
+      state: { job },
+    });
   }
 }

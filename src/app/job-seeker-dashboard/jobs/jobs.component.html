@@ -36,7 +36,7 @@
       <p class="description">{{ job.description }}</p>
     </div>
     <div class="actions">
-      <button class="details-btn">View Details</button>
+      <button (click)="goToJobDetails(job)" class="details-btn">View Details</button>
       <p class="timestamp">{{ job.timestamp }}</p>
     </div>
   </div>

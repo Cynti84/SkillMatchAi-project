@@ -30,7 +30,7 @@
           <strong>{{ job.title }}</strong>
           <p>{{ job.company }} • Match: {{ job.match }}%</p>
         </div>
-        <button class="primary-btn">Apply</button>
+          <button class="primary-btn" (click)="goToJobDetails(job)">Apply</button>
       </div>
     </div>
 
@@ -50,6 +50,7 @@
 
     <!-- Career Guidance -->
     <div class="card guidance-card">
+      <h3>Career Guidance</h3>
       <p>
         Consider improving your skills in
         <span class="highlight">data analysis</span>

@@ -1,0 +1,113 @@
+.job-details-wrapper {
+  max-width: 800px;
+  margin: 3rem auto;
+  background: linear-gradient(145deg, #ffffff, #f9fafb);
+  border-radius: 16px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  position: relative;
+  font-family: 'Inter', sans-serif;
+  animation: fadeIn 0.4s ease;
+
+  h2 {
+    font-size: 2rem;
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .meta {
+    background: #e0f2fe;
+    color: #0369a1;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .job-description {
+    background: #f9fafb;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.75rem;
+      color: #1f2937;
+    }
+  }
+
+  .actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+
+    .primary-btn {
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #1d4ed8;
+      }
+    }
+
+    .cancel-btn {
+      background: transparent;
+      border: 1px solid #9ca3af;
+      color: #374151;
+      border-radius: 8px;
+      padding: 0.7rem 1.5rem;
+      font-size: 1rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+
+      &:hover {
+        background: #f3f4f6;
+      }
+    }
+  }
+}
+
+// Animation
+@keyframes fadeIn {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+// Responsive
+@media (max-width: 600px) {
+  .job-details-wrapper {
+    padding: 2rem 1.5rem;
+
+    .actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }
+}

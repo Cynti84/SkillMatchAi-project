@@ -1,0 +1,262 @@
+.portfolio-page {
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+  color: #1f2937;
+  background-color: #f9fafb;
+}
+
+// Top Bar
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  .back-btn,
+  .add-btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #2563eb;
+    }
+  }
+}
+
+// Empty State
+.empty-state {
+  background: #eef2f7;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  color: #6b7280;
+  font-style: italic;
+}
+
+// Portfolio Cards
+.portfolio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.portfolio-card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
+
+  .card-header {
+    margin-bottom: 0.5rem;
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+
+    .subtext {
+      color: #6b7280;
+      font-size: 0.95rem;
+    }
+
+    .date {
+      font-size: 0.85rem;
+      color: #9ca3af;
+      margin-top: 0.3rem;
+    }
+  }
+
+  .card-body {
+    margin-top: 1rem;
+
+    p {
+      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+
+      .tag {
+        background-color: #e0f2fe;
+        color: #0369a1;
+        padding: 0.35rem 0.8rem;
+        font-size: 0.75rem;
+        border-radius: 999px;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .card-actions {
+    margin-top: 1rem;
+    display: flex;
+    gap: 0.5rem;
+
+    button {
+      background-color: transparent;
+      border: 1px solid #cbd5e1;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #f3f4f6;
+      }
+    }
+  }
+}
+
+// Modal Styles
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  backdrop-filter: blur(3px);
+
+  .modal {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 500px;
+    max-height: 90vh; // 👈 constrain height
+    overflow-y: auto; // 👈 enable vertical scroll
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.3s ease;
+    scroll-padding-bottom: 2rem; // 👈 ensures space for buttons when scrolling
+    
+
+    h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+
+      label {
+        display: block;
+        font-weight: 500;
+        margin-bottom: 0.4rem;
+        color: #374151;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 0.6rem 1rem;
+        border: 1px solid #d1d5db;
+        border-radius: 8px;
+        font-size: 0.95rem;
+      }
+
+      textarea {
+        resize: vertical;
+        min-height: 90px;
+      }
+
+      .radio-options {
+        display: flex;
+        gap: 1rem;
+
+        label {
+          font-weight: 400;
+        }
+      }
+    }
+
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 1rem;
+      margin-top: 2rem;
+
+      .cancel-btn,
+      .save-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.95rem;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-weight: 500;
+      }
+
+      .cancel-btn {
+        background: transparent;
+        border: 1px solid #9ca3af;
+        color: #374151;
+
+        &:hover {
+          background-color: #f3f4f6;
+        }
+      }
+
+      .save-btn {
+        background: #3b82f6;
+        color: white;
+
+        &:hover {
+          background-color: #2563eb;
+        }
+      }
+    }
+    
+  }
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+// Responsive
+@media (max-width: 600px) {
+  .portfolio-page {
+    padding: 1.5rem;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .modal .modal-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

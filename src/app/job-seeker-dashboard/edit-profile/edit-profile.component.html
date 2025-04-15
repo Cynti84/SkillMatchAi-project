@@ -1,0 +1,36 @@
+<div class="edit-profile-container">
+  <h2>Edit Profile</h2>
+
+  <div class="form-group">
+    <label>Full Name</label>
+    <input [(ngModel)]="fullName" type="text" />
+  </div>
+
+  <div class="form-group">
+    <label>Email</label>
+    <input [(ngModel)]="email" type="email" />
+  </div>
+
+  <div class="form-group">
+    <label>Location</label>
+    <input [(ngModel)]="location" type="text" />
+  </div>
+
+  <div class="form-group">
+    <label>Skills</label>
+    <textarea [(ngModel)]="skills"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label>Profile Photo</label>
+    <input type="file" (change)="onAvatarChange($event)" />
+    <div *ngIf="avatar" class="preview">
+      <img [src]="avatar" alt="Avatar Preview" />
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="primary-btn" (click)="save()">Save Changes</button>
+    <button class="cancel-btn" (click)="cancel()">Cancel</button>
+  </div>
+</div>
