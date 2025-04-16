@@ -1,0 +1,54 @@
+<div class="career-guidance">
+  <h2>AI Career Guidance</h2>
+
+  <section class="recommendations section-block">
+    <h3>Recommended Career Paths</h3>
+    <div class="card-grid">
+      <div class="card" *ngFor="let role of recommendedRoles">
+        <h4>{{ role.title }} <span>({{ role.level }})</span></h4>
+        <p class="subtitle">Suggested Skills:</p>
+        <ul>
+          <li *ngFor="let skill of role.skills">{{ skill }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="career-path section-block">
+    <h3>Career Progression</h3>
+    <div class="path">
+      <div class="step" *ngFor="let step of careerPath; let i = index">
+        {{ step }}
+        <span *ngIf="i < careerPath.length - 1">→</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="skill-gap section-block">
+    <h3>Skill Gap Analysis</h3>
+    <ul>
+      <li *ngFor="let gap of skillGap">
+        {{ gap.skill }} - 
+        <span [class.has]="gap.hasSkill" [class.missing]="!gap.hasSkill">
+          {{ gap.hasSkill ? 'You have this skill' : 'Missing skill' }}
+        </span>
+      </li>
+    </ul>
+  </section>
+
+  <section class="trending section-block">
+    <h3>Trending Careers</h3>
+    <div class="chips">
+      <span class="chip" *ngFor="let career of trendingCareers">{{ career }}</span>
+    </div>
+  </section>
+
+  <section class="resources section-block">
+    <h3>Upskilling Resources</h3>
+    <ul>
+      <li *ngFor="let resource of resources">
+        <a [href]="resource.link" target="_blank">{{ resource.name }}</a>
+      </li>
+    </ul>
+  </section>
+</div>

@@ -14,6 +14,7 @@ import { ApplicationsComponent } from './job-seeker-dashboard/applications/appli
 import { ProfileComponent } from './job-seeker-dashboard/profile/profile.component';
 import { NotificationsComponent } from './job-seeker-dashboard/notifications/notifications.component';
 import { SettingsComponent } from './job-seeker-dashboard/settings/settings.component';
+import { CareerGuidanceComponent } from './job-seeker-dashboard/career-guidance/career-guidance.component';
 //employer components
 import { EmployerDashboardComponent } from './employer-dashboard/employer-dashboard.component';
 import { HomeComponent } from './employer-dashboard/home/home.component';
@@ -56,6 +57,8 @@ export const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'notifications', component: NotificationsComponent },
       { path: 'settings', component: SettingsComponent },
+      { path: 'career-guidance', component: CareerGuidanceComponent },
+      
     ],
   },
   {
@@ -114,4 +117,5 @@ export const routes: Routes = [
         './job-seeker-dashboard/job-application/job-application.component'
       ).then((m) => m.JobApplicationComponent),
   },
+
 ]; 
