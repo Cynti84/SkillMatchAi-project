@@ -1,0 +1,67 @@
+<div class="overview-wrapper">
+  <!-- Header -->
+  <div class="header">
+    <h2>Job Seeker Dashboard</h2>
+    <div class="top-right-menu">
+      <span>Welcome, {{ userName || 'Guest' }}!</span>
+    </div>
+  </div>
+
+  <!-- Content Sections -->
+  <div class="cards-grid">
+
+    <!-- Profile Summary -->
+    <div class="card profile-card">
+      <div class="profile-info">
+        <img 
+          [src]="profilePhoto || 'user (1).png'" 
+          alt="Profile" 
+          class="avatar"
+        />
+        <div>
+          <h3>{{ userName }}</h3>
+          <p>Skill Match Score: {{ matchScore }}%</p>
+        </div>
+      </div>
+      <button type="button" (click)="navigateToProfile()" class="edit-btn">Edit Profile</button>
+    </div>
+
+    <!-- Recommended Jobs -->
+    <div class="card">
+      <h3>Recommended Jobs</h3>
+      <div *ngFor="let job of recommendedJobs" class="job-listing">
+        <div class="job-info">
+          <strong>{{ job.title }}</strong>
+          <p>{{ job.company }} • Match: {{ job.match }}%</p>
+        </div>
+        <button class="primary-btn" (click)="goToJobDetails(job)">Apply</button>
+      </div>
+    </div>
+
+    <!-- Application Status -->
+    <div class="card">
+      <h3>Application Status</h3>
+      <div *ngIf="applications.length === 0">You haven’t applied to any jobs yet.</div>
+      <div *ngFor="let app of applications" class="application-item">
+        <div class="application-info">
+          <strong>{{ app.jobTitle }}</strong>
+          <p>{{ app.company }} • Applied on {{ app.date }}</p>
+        </div>
+        <span class="status-badge" [ngClass]="app.status.toLowerCase().replace(' ', '-')">
+          {{ app.status }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Career Guidance -->
+    <div class="card guidance-card">
+      <h3>Career Guidance</h3>
+      <p>
+        Consider improving your skills in
+        <span class="highlight">angular</span>
+        for better opportunities.
+      </p>
+    </div>
+
+  </div>
+</div>
