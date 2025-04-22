@@ -6,7 +6,7 @@ import {
 import { protect, restrictTo } from "../middleware/authMiddleware";
 import multer, { memoryStorage } from "multer";
 
-const upload = multer({ dest: "uploads/" }); // 👈 will save files to /uploads by default
+const upload = multer({ dest: "uploads/logos/" }); // 👈 will save files to /uploads by default
 const router = express.Router();
 
 router.post("/create", protect, restrictTo(["employer"]), upload.single('logo'), handleCreateEmployer);

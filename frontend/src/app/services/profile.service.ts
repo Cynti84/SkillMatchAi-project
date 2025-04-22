@@ -40,6 +40,15 @@ export class ProfileService {
       headers: this.authHeaders(),
     });
   }
+
+  uploadCV(file: File): Observable<any> {
+    const formData = new FormData();
+    formData.append('cv', file);
+
+    return this.http.post(`${this.baseUrl}/cv/upload`, formData, {
+      headers: this.authHeaders(),
+    });
+  }
 }
 
 

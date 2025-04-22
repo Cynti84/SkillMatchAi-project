@@ -7,7 +7,9 @@ import {
   ApplicationService,
   JobApplication,
 } from '../../services/application.service';
-import { JobService, Job } from '../../services/job-state.service';
+import { JobService, Job } from '../../services/job.service';
+import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-job-application',
@@ -28,14 +30,22 @@ export class JobApplicationComponent {
   constructor(
     private router: Router,
     private appService: ApplicationService,
-    private jobService: JobService
+    private jobService: JobService,
+    private http: HttpClient,
+    private auth: AuthService
   ) {
     this.generatePortfolioPDF();
     this.loadSelectedJob(); // 👈 grab job on init
   }
 
   loadSelectedJob() {
-    this.jobDetails = this.jobService.getSelectedJob(); // ✅ Fetch from JobService
+    const nav = this.router.getCurrentNavigation();
+    this.jobDetails = nav?.extras?.state?.['job'];
+
+    if (!this.jobDetails || !this.jobDetails.id) {
+      alert('Missing job info. Try again😑.');
+      this.router.navigate(['/job-seeker-dashboard/overview']);
+    }
   }
 
   onResumeUpload(event: any) {
@@ -91,42 +101,38 @@ export class JobApplicationComponent {
       return;
     }
 
-    // Save application to localStorage via ApplicationService
-    const newApp: JobApplication = {
-      fullName: this.fullName,
-      email: this.email,
-      skills: ['JavaScript', 'React', 'Node.js'],
-      resumeFileName: this.resumeFile?.name || '',
-      portfolioExists: !!this.portfolioPDF,
-      matchScore: 92,
-      location: 'Nairobi, Kenya',
-      experience: '3 years',
-      jobTitle: this.jobDetails?.title || 'N/A',
-      company: this.jobDetails?.company || 'N/A',
-      status: 'Pending',
+    if (!this.jobDetails?.id) {
+      alert('Missing job info. Try again.');
+      return;
+    }
 
-      // ✅ Newly added optional fields
-      initials: this.fullName
-        .split(' ')
-        .map((n) => n[0])
-        .join(''),
-      date: new Date().toLocaleDateString(),
-      type: 'Full-time',
+    const formData = new FormData();
+    formData.append('job_id', this.jobDetails.id.toString());
+    formData.append('cover_letter', this.coverLetter);
+    formData.append('resume', this.resumeFile);
+    if (this.portfolioPDF) {
+      formData.append('portfolio', this.portfolioPDF, 'portfolio.pdf');
+    }
+
+    const token = this.auth.getToken();
+    const headers = {
+      Authorization: `Bearer ${token}`,
     };
 
-    this.appService.saveApplication(newApp); // ✅ Save it!
-
-    // Log the form submission details (optional)
-    console.log('Application submitted with:', {
-      name: this.fullName,
-      email: this.email,
-      coverLetter: this.coverLetter,
-      resume: this.resumeFile?.name,
-      portfolio: this.portfolioPDF ? 'portfolio.pdf' : 'none',
-    });
-
-    alert('Application submitted successfully!');
-    this.router.navigate(['/job-seeker-dashboard/applications']);
+    this.http
+      .post('/api/applications/apply', formData, {
+        headers,
+      })
+      .subscribe({
+        next: () => {
+          alert('Application submitted successfully!');
+          this.router.navigate(['/job-seeker-dashboard/applications']);
+        },
+        error: (err) => {
+          console.error('Application failed:', err);
+          alert('Application failed. Please try again.');
+        },
+      });
   }
 
   downloadPortfolio() {

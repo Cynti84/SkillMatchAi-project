@@ -5,6 +5,8 @@ import userRoutes from './routes/userRoutes'
 import jobSeekerRoutes from "./routes/jobSeekerRoutes";
 import employerRoutes from "./routes/employerRoutes";
 import jobRoutes from "./routes/jobRoutes"
+import applicationRoutes from "./routes/applicationRoutes"
+import cvRoutes from "./routes/cvRoutes"
 
 //1. configuration of the dotenv
 dotenv.config();
@@ -30,6 +32,9 @@ app.use('/api/users', userRoutes)
 app.use("/api/job-seeker", jobSeekerRoutes);
 app.use("/api/employer", employerRoutes);
 app.use("/api/jobs", jobRoutes)
+app.use('/api/applications', applicationRoutes)
+app.use('/api/cv', cvRoutes)
+
 
 
 //start the server

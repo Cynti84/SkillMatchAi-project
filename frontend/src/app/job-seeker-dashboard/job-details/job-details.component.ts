@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Location } from '@angular/common';
 import { JobService } from '../../services/job.service';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-job-details',
@@ -17,7 +18,7 @@ export class JobDetailsComponent {
     private router: Router,
     private location: Location,
     private jobService: JobService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {
     const nav = this.router.getCurrentNavigation();
     this.job = nav?.extras?.state?.['job'];
@@ -25,7 +26,7 @@ export class JobDetailsComponent {
 
   ngOnInit() {
     const jobId = this.route.snapshot.paramMap.get('id');
-    if (jobId) {
+    if (jobId ) {
       this.jobService.getJobById(+jobId).subscribe({
         next: (job) => (this.job = job),
         error: (err) => console.error('Failed to fetch job details:', err),

@@ -30,25 +30,40 @@ export class JobSeekerSignupComponent {
   }
 
   onSubmit(): void {
-    const formData = new FormData();
-    formData.append('phone', this.phone);
-    formData.append('location', this.location);
-    formData.append('desired_roles', this.jobRole);
-    formData.append('skills', this.skills);
-    if (this.cvFile) formData.append('resume_url', this.cvFile);
-    if (this.profilePhoto)
-      formData.append('profile_photo_url', this.profilePhoto);
+    if (!this.cvFile) {
+      alert('Please upload your CV to extract skills.');
+      return;
+    }
 
-    console.log('Using token:', this.profileService['auth'].getToken());
+    // First, upload CV and extract skills
+    this.profileService.uploadCV(this.cvFile).subscribe({
+      next: (cvRes) => {
+        console.log('CV uploaded and skills extracted:', cvRes.skills);
 
-    this.profileService.createJobSeekerProfile(formData).subscribe({
-      next: (res) => {
-        alert('Profile created!');
-        this.router.navigate(['/job-seeker-dashboard']);
+        // Proceed to create profile after CV upload
+        const formData = new FormData();
+        formData.append('phone', this.phone);
+        formData.append('location', this.location);
+        formData.append('desired_roles', this.jobRole);
+        formData.append('skills', this.skills); // optional - still keep it
+        if (this.cvFile) formData.append('cv', this.cvFile.name);
+        if (this.profilePhoto)
+          formData.append('profile_photo_url', this.profilePhoto.name);
+
+        this.profileService.createJobSeekerProfile(formData).subscribe({
+          next: () => {
+            alert('Profile created and skills extracted successfully!');
+            this.router.navigate(['/job-seeker-dashboard']);
+          },
+          error: (err) => {
+            console.error('Profile creation failed:', err);
+            alert('Failed to submit profile.');
+          },
+        });
       },
       error: (err) => {
-        console.error(err);
-        alert('Failed to submit profile.');
+        console.error('CV upload failed:', err);
+        alert('CV upload failed. Please try again.');
       },
     });
   }
