@@ -23,6 +23,6 @@ jobs:
         ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_HOST }} << 'EOF'
           cd skillmatch-root
           git pull origin main
-          docker-compose down
-          docker-compose up --build backend -d
+          sudo docker-compose down
+          sudo docker-compose up --build backend -d
         EOF
