@@ -39,5 +39,5 @@ app.use('/api/cv', cvRoutes)
 
 //start the server
 app.listen(port, () => {
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on well on http://localhost:${port}`);
 });
